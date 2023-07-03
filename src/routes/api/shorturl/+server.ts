@@ -38,6 +38,6 @@ export const POST: RequestHandler = async (e: RequestEvent) => {
     return json({ 
         shortUrl: `${urlResponseParse.shortUrl.replace(/^http:\/\//i, 'https://')}`,
         shortCode: `${urlResponseParse.shortCode}`,
-        qrCodeUrl: `${urlResponseParse.shortUrl.replace(/^http:\/\//i, 'https://')}/qr-code?size=300&format=png&errorCorrection=L&margin=10`
+        qrCodeUrl: `${urlResponseParse.shortUrl.replace(/^http:\/\//i, 'https://')}/qr-code?size=300&format=png&errorCorrection=H&margin=10`
     });
 };
