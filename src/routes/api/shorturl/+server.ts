@@ -1,6 +1,6 @@
 import { error, json } from '@sveltejs/kit';
 import type { RequestEvent, RequestHandler } from './$types';
-import { myConfig } from '$lib/myconfig';
+import { SHLINK_API_KEY } from '$env/static/private'
 
 export const POST: RequestHandler = async (e: RequestEvent) => {
 
@@ -19,7 +19,7 @@ export const POST: RequestHandler = async (e: RequestEvent) => {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
-            "X-Api-Key": myConfig.shlinkKey,
+            "X-Api-Key": SHLINK_API_KEY,
             "accept": "application/json"
           },
         body: JSON.stringify({
