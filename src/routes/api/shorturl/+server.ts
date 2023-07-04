@@ -4,12 +4,16 @@ import { myConfig } from '$lib/myconfig';
 
 export const POST: RequestHandler = async (e: RequestEvent) => {
 
+    if(!e.request.body) {
+        throw error(400, `Invalid API Call: Missing request body`)
+    } 
+
     const requestBodyJson = await e.request.json();
-    const requestLongUrl:string = requestBodyJson.longUrl;
+    const requestLongUrl:string|null = requestBodyJson.longUrl;
 
     if(!requestLongUrl) {
-        throw error(400, `Missing long URL request`)
-    }  
+        throw error(400, `Invalid API Call: Missing longUrl in request`)
+    } 
 
     const urlResponse:any = await fetch('https://camw.me/rest/v3/short-urls', {
         method: 'POST',
