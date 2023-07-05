@@ -31,10 +31,10 @@
                 <ul class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                     <li>
                         <a href={`/user/${$user.uid}`} class="justify-between">
-                            Profile
+                            Profile Settings
                         </a>
                     </li>
-                    <li><a href={`/user/${$user.uid}/settings`}>Settings</a></li>
+                    <li><a href={`/user/${$user.uid}/locations`}>User Locations</a></li>
                     <li><a on:click={() => signOut(auth)} href="/login">Logout</a></li>
                 </ul>
             </div>
